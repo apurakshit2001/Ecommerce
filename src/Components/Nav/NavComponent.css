@@ -1,0 +1,232 @@
+/* General Styling */
+body, ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+  
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    color: #000;
+}
+  
+.logo h1{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fc0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+}
+  
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 60vw;
+}
+.nav-links li{
+    position: relative;
+}
+.nav-links li a {
+    color: #000;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 100%;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+    transform-origin: right;
+}
+
+.nav-links li a:hover::after {
+    transform: translateX(100%);
+    width: 100%;
+}
+.nav-links li, .nav-links li a{
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+.nav-links li a:hover,.nav-links li:hover{
+   color: #fc0000;
+}
+
+/* Hamburger Menu Styling */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+  
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+  
+/* Mobile Styling */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        width: 200px;
+        height: 100vh;
+        background-color: rgba(255, 229, 229, 0.9);
+        flex-direction: column-reverse;
+        align-items: center;
+        transition: right 0.3s ease;
+        justify-content: start;
+        padding-top: 36px;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+  
+    .nav-links li {
+        margin: 1rem 0;
+    }
+  
+    .hamburger {
+        display: flex;
+        z-index: 1000;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+  
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+  
+    .hamburger.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    body{
+        position: relative;
+    }
+    dialog[open] {
+        position: fixed; 
+        top: 40%; 
+        left: 10%; 
+        width: 76%; 
+        max-width: none; 
+        padding: 0.5rem; 
+        box-shadow: none; 
+    }
+}
+  
+/* Dialog Modal Styling */
+dialog {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(-25vh);
+    width: 90%;
+    max-width: 400px;
+    padding: 1rem;
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 1s, opacity 1s ease, transform 1s ease;
+}
+  
+dialog[open] {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+    transition: visibility 0s, opacity 1s ease, transform 1s ease;
+    animation: appear 1s ease-in-out forwards;
+}
+  
+dialog.vanish {
+    animation: vanish 1s ease-in-out forwards;
+}
+  
+/* Keyframe Animations */
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-25vh);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  
+@keyframes vanish {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(25vh);
+    }
+}
+  
+/* Search Box Styling within Modal */
+.search-box {
+    position: relative;
+    margin-top: 1rem;
+}
+  
+.search-box input[type="text"] {
+    width: 100%;
+    padding: 8px 30px 8px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+  
+.search-close-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+/* General styles for the custom select */
+.custom-select {
+    border-radius: 5px;
+}
+
+/* Change border color on focus */
+.custom-select:focus {
+    border-color: #007BFF; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Optional: Style for disabled state */
+.custom-select:disabled {
+    background-color: #f0f0f0; /* Light gray background */
+    color: #999; /* Gray text */
+    cursor: not-allowed; /* Change cursor to indicate disabled */
+}

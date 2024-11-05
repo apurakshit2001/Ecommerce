@@ -1,0 +1,151 @@
+.amazon-search {
+    padding: 20px;
+    background-color: white;
+}
+
+.title {
+    text-align: left;
+    font-size: 2rem;
+    margin: 0;
+    padding: 5px;
+    padding-left: 45px;
+    color: #333;
+}
+
+.product-list {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory; /* Enables horizontal snapping */
+}
+
+.product-item {
+    max-width: 180px;
+    min-width: 160px;
+    margin: 0 10px;
+    flex: 0 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 15px 0;
+    transition: transform 0.2s ease;
+    scroll-snap-align: center; /* Each item will snap to the center */
+}
+.product-list::-webkit-scrollbar {
+    height: 8px;
+}
+
+.product-list::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+
+.product-item:hover {
+    transform: scale(1.05);
+}
+
+.product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-bottom: 1px solid #ddd;
+}
+
+.product-title {
+    font-size: 0.95rem;
+    margin: 10px 0;
+    padding: 0 10px;
+    color: #555;
+    height: 50px;
+    overflow: hidden;
+}
+
+.product-price {
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.product-original-price {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.original-price {
+    text-decoration: line-through;
+}
+
+.product-link {
+    text-decoration: none;
+    color: #555;
+}
+
+.arrows {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    color: #333;
+    position: relative;
+}
+
+.rightArrow,
+.leftArrow {
+    font-size: 1.5rem;
+    cursor: pointer;
+    bottom: 150px;
+    padding: 30px 10px;
+    color: #ddd;
+    background-color: rgba(0, 0, 0, 0.432);
+    border-radius: 10px;
+}
+
+.rightArrow {
+    position: absolute;
+    right: 0;
+}
+
+.leftArrow {
+    position: absolute;
+    left: 0;
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 1.5rem;
+        padding: 0;
+    }
+    .rightArrow,
+    .leftArrow {
+        bottom: 130px;
+        padding: 15px 5px;
+    }
+    .product-list {
+        padding: 5px 0;
+    }
+
+    .product-item {
+        max-width: 140px;
+        min-width: 120px;
+        padding: 10px 0;
+    }
+
+    .product-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .product-title {
+        font-size: 0.85rem;
+    }
+
+    .product-price,
+    .product-original-price {
+        font-size: 0.75rem;
+    }
+}

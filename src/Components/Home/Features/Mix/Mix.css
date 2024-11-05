@@ -1,0 +1,92 @@
+/* Mix.css */
+.mixFiture {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+    background-color: #f9f9f9;
+  }
+  .seemore{
+    text-decoration: none;
+    padding:0 16px;
+  }
+  .card {
+    flex: 1 1 calc(50% - 16px);
+    max-width: calc(50% - 16px);
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.01);
+  }
+  
+  .cardHeading {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .cardProducts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  
+  .imageDiv {
+    width: 120px;
+    text-align: center;
+  }
+  
+  .cardProductImg {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .imgCaption {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 8px;
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .mixFiture{
+    
+    }
+    .card {
+      flex: 2 2 100%;
+      max-width: 100%;
+    }
+
+    .imageDiv {
+      width: 150px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .mixFiture {
+      padding: 8px;
+    }
+  
+    .card {
+      padding: 12px;
+    }
+  
+    .cardHeading {
+      font-size: 1.125rem;
+    }
+  
+    .imageDiv {
+      width: 150px;
+    }
+  
+  }
+  
