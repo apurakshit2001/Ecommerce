@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import ProductList from '../../../../assets/ProductList';
+import ProductList from './ProductList';
 import './AmazonSearchResults.css';
 
 const AmazonSearchResults = () => {
