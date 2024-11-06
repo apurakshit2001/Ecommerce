@@ -1,9 +1,10 @@
 import React from 'react';
 import logo from '../../assets/loginBg.jpeg'
+import './Footer.css'
 
 const Footer = () => {
   return (
-    <section>
+    <section className='FooterSection'>
       <div className="container">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
           <div className="col mb-3">
@@ -17,7 +18,8 @@ const Footer = () => {
                   width="100px"
                   height="100px"
                   style={{
-                    transform: 'skew( -45deg)'
+                    transform: 'skew( -45deg)',
+                    borderRadius: '50%',
                   }}
                 />
               </a>
