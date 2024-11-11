@@ -16,7 +16,6 @@ function App() {
         <Route path="/home" element={<Home />} /> {/* Alternate route for Home */}
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<LoginSignupForm />} />
-        <Route path="/contact" element={<Footer />} /> 
       </Routes>
       <Footer /> 
     </div>
