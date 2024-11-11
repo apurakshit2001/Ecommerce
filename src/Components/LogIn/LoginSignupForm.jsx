@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './LoginSignupForm.css';
 
 const LoginSignupForm = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   const handleLoginClick = () => {
     setIsLogin(true);

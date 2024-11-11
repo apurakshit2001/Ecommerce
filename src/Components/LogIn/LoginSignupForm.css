@@ -11,9 +11,10 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url(../../assets/loginBg.jpeg);
+    background-repeat: no-repeat;
+    background-image: url(../../assets/loginBG.webp);
     background-attachment: fixed;
-    background-size: contain;
+    background-size: cover;
     overflow: hidden;
 }
 
@@ -33,9 +34,12 @@
     border-radius: 10px;
     overflow: hidden;
 }
-
+.slide{
+    text-align: center;
+}
 /* Title Section */
 .title-text {
+    text-align: center;
     display: flex;
     justify-content: space-between;
     position: relative;

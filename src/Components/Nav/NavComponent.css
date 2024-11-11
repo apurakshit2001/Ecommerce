@@ -33,14 +33,14 @@ body, ul {
 .nav-links li{
     position: relative;
 }
-.nav-links li a {
+.nav-links li a, .link a {
     color: #000;
     text-decoration: none;
     padding: 0.5rem 1rem;
     position: relative;
     overflow: hidden;
 }
-.nav-links li a::after {
+.nav-links li a::after, .link a::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -53,18 +53,20 @@ body, ul {
     transform-origin: right;
 }
 
-.nav-links li a:hover::after {
+.nav-links li a:hover::after, .link a:hover::after {
     transform: translateX(100%);
     width: 100%;
 }
-.nav-links li, .nav-links li a{
+.nav-links li, .nav-links li a, .link a{
     transition: all 0.3s ease;
     font-size: 1.1rem;
 }
-.nav-links li a:hover,.nav-links li:hover{
+.nav-links li a:hover,.nav-links li:hover, .link a:hover{
    color: #fc0000;
 }
-
+.link a{
+    font-size: 1rem;
+}
 /* Hamburger Menu Styling */
 .hamburger {
     display: none;
@@ -126,18 +128,22 @@ body, ul {
     }
     dialog[open] {
         position: fixed; 
-        top: 40%; 
+        top: 30%; 
         left: 10%; 
         width: 76%; 
         max-width: none; 
-        padding: 0.5rem; 
-        box-shadow: none; 
+        padding: 0.5rem;    
+        box-shadow: none;
+        z-index: 9999; 
     }
 }
+
+  
   
 /* Dialog Modal Styling */
 dialog {
     position: fixed;
+    z-index: 999;
     top: 20%;
     left: 50%;
     transform: translate(-50%, -50%) translateY(-25vh);
@@ -145,7 +151,7 @@ dialog {
     max-width: 400px;
     padding: 1rem;
     background-color: white;
-    border: none;
+    border: 2px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     visibility: hidden;
@@ -216,6 +222,8 @@ dialog.vanish {
 /* General styles for the custom select */
 .custom-select {
     border-radius: 5px;
+    font-size: 1rem;
+    padding: 0.2rem 1rem;
 }
 
 /* Change border color on focus */
