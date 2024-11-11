@@ -168,7 +168,7 @@ const Footer = () => {
                           // onSubmit={handleSendEmail}
                           // ref={form}
                         >
-                          <div className="row gy-4">
+                          <div className="row gy-4 emailINput">
                             <div className="col-12">
                               <div className="input-group">
                                 <span className="input-group-text" id="email-newsletter-addon">
