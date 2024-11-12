@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import NavComponent from './Components/Nav/NavComponent';
@@ -11,8 +11,26 @@ import MixProductPage from './Components/MixProductPage/MixProductPage';
 import MinimalProductinfo from './Components/ProductPage/MinimalProductinfo';
 
 function App() {
+  const [showArrow, setShowArrow] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const halfPageHeight = document.documentElement.scrollHeight / 2.8;
+      
+      if (scrollPosition > halfPageHeight) {
+        setShowArrow(true);
+      } else {
+        setShowArrow(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className='app'> 
+    <div className='app'>
       <NavComponent />
       <Routes>
         <Route path="/" element={<Home />} /> {/* Root route for Home */}
@@ -23,7 +41,10 @@ function App() {
         <Route path="/MixProductPage" element={<MixProductPage />} />
         <Route path="/MinimalProductinfo" element={<MinimalProductinfo />} />
       </Routes>
-      <Footer /> 
+      <div className={`upArrow ${showArrow ? 'visible' : 'hidden'}`}>
+        <a className='arrow' href="#">↑</a>
+      </div>
+      <Footer />
     </div>
   );
 }
