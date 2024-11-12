@@ -8,17 +8,14 @@ const MenFashion = () => {
     const { setSelectedProduct } = useContext(ProductContext);
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const productListRef = useRef(null);
 
     useEffect(() => {
         try {
             setProducts(ProductList);
-            setLoading(false);
         } catch (err) {
             setError('Failed to load products');
-            setLoading(false);
         }
     }, []);
 
@@ -40,13 +37,6 @@ const MenFashion = () => {
         }
     };
 
-    if (loading) {
-        return <div className="loading-message">Loading...</div>;
-    }
-
-    if (error) {
-        return <div className="error-message">{error}</div>;
-    }
 
     const viewProductDetails = (product) => {
         setSelectedProduct(product);

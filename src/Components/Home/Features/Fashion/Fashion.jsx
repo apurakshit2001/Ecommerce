@@ -8,19 +8,34 @@ const Fashion = () => {
     const { setSelectedProduct } = useContext(ProductContext);
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
-    // const [loading, setLoading] = useState(true);
-    // const [error, setError] = useState('');
+    const [error, setError] = useState('');
     const productListRef = useRef(null);
 
     useEffect(() => {
         try {
             setProducts(ProductList);
-            // setLoading(false);
         } catch (err) {
             setError('Failed to load products');
-            // setLoading(false);
         }
     }, []);
+
+    const scrollLeft = () => {
+        if (productListRef.current) {
+            productListRef.current.scrollBy({
+                left: -400,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    const scrollRight = () => {
+        if (productListRef.current) {
+            productListRef.current.scrollBy({
+                left: 400,
+                behavior: 'smooth'
+            });
+        }
+    };
 
     const viewProductDetails = (product) => {
         setSelectedProduct(product);
@@ -49,6 +64,14 @@ const Fashion = () => {
                         </p>
                     </div>
                 ))}
+            </div>
+            <div className="arrows">
+                <span className="leftArrow" onClick={scrollLeft}>
+                    <i className="fa-solid fa-less-than"></i>
+                </span>
+                <span className="rightArrow" onClick={scrollRight}>
+                    <i className="fa-solid fa-greater-than"></i>
+                </span>
             </div>
         </div>
     );
