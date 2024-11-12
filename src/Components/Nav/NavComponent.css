@@ -28,6 +28,8 @@ body, ul {
     list-style: none;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: center;
     width: 60vw;
 }
 .nav-links li{

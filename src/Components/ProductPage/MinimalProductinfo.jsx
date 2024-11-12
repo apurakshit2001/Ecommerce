@@ -38,7 +38,7 @@ const MinimalProductinfo = () => {
             <p className='MinimalProductinfoText'>Price: ${selectedProduct.price}</p>
             <p className='MinimalProductinfoText'>Description: {selectedProduct.description}</p>
             <div className="buttonsContainer">
-                <button className="addToCartButton">Add to Cart</button>
+                <button className="addToCartButton"><i className="fa-solid fa-cart-shopping"></i>Add to Cart</button>
                 <button className="buyNowButton">Buy Now</button>
             </div>
             
