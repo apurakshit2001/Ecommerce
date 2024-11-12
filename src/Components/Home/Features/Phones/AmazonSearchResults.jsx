@@ -1,20 +1,24 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ProductContext } from '../../../ProductContext';
 import ProductList from './ProductList';
 import './AmazonSearchResults.css';
 
 const AmazonSearchResults = () => {
+    const { setSelectedProduct } = useContext(ProductContext);
+    const navigate = useNavigate();
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const productListRef = useRef(null);
 
     useEffect(() => {
         try {
             setProducts(ProductList);
-            setLoading(false);
         } catch (err) {
             setError('Failed to load products');
-            setLoading(false);
+            console.log(err, error);
+        } finally {
+            console.log("Well done!");            
         }
     }, []);
 
@@ -36,21 +40,16 @@ const AmazonSearchResults = () => {
         }
     };
 
-    if (loading) {
-        return <div className="loading-message">Loading...</div>;
-    }
-
-    if (error) {
-        return <div className="error-message">{error}</div>;
-    }
-
+    const viewProductDetails = (product) => {
+        setSelectedProduct(product);
+        navigate('/product');
+    };
     return (
         <div className="amazon-search">
             <h1 className="title">Newest Smart Phone</h1>
             <div className="product-list" ref={productListRef}>
                 {products.map((product) => (
-                    <div className="product-item" key={product.asin}>
-                        <a href={product.product_url} target="_blank" rel="noopener noreferrer" className="product-link">
+                    <div className="product-item" key={product.asin} onClick={() => viewProductDetails(product)}>
                             <img
                                 src={product.product_photo}
                                 alt={product.product_title}
@@ -63,7 +62,6 @@ const AmazonSearchResults = () => {
                             <p className="product-original-price">
                                 Original Price: <span className="original-price">{product.product_original_price}</span>
                             </p>
-                        </a>
                     </div>
                 ))}
             </div>

@@ -6,6 +6,7 @@ import Home from './Components/Home/Home';
 import Profile from './Components/Profile/Profile';
 import LoginSignupForm from './Components/LogIn/LoginSignupForm';
 import Footer from './Components/Footer/Footer';
+import Product from './Components/ProductPage/Product';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/home" element={<Home />} /> {/* Alternate route for Home */}
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<LoginSignupForm />} />
+        <Route path="/product" element={<Product />} />
       </Routes>
       <Footer /> 
     </div>

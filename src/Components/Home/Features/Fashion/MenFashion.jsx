@@ -1,8 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import ProductList from './MenFashionProductList';
 import '../Phones/AmazonSearchResults.css'
+import { useNavigate } from 'react-router-dom';
+import { ProductContext } from '../../../ProductContext';
 
 const MenFashion = () => {
+    const { setSelectedProduct } = useContext(ProductContext);
+    const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
@@ -44,13 +48,17 @@ const MenFashion = () => {
         return <div className="error-message">{error}</div>;
     }
 
+    const viewProductDetails = (product) => {
+        setSelectedProduct(product);
+        navigate('/product');
+    };
+
     return (
         <div className="amazon-search">
             <h1 className="title">Men's Fashion</h1>
             <div className="product-list" ref={productListRef}>
                 {products.map((product) => (
-                    <div className="product-item" key={product.asin}>
-                        <a href={product.product_url} target="_blank" rel="noopener noreferrer" className="product-link">
+                    <div className="product-item" key={product.asin} onClick={() => viewProductDetails(product)}>
                             <img
                                 src={product.product_photo}
                                 alt={product.product_title}
@@ -63,7 +71,6 @@ const MenFashion = () => {
                             <p className="product-original-price">
                                 Original Price: <span className="original-price">{product.product_original_price}</span>
                             </p>
-                        </a>
                     </div>
                 ))}
             </div>
