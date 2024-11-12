@@ -4,14 +4,13 @@ import { CartContext } from '../Contexts/CartContext';
 import './MinimalProductinfo.css';
 
 const MinimalProductinfo = () => {
-    const { selectedProduct, firstImage } = useContext(ProductContext);  // Access first image
+    const { selectedProduct } = useContext(ProductContext);
     const { addToCart } = useContext(CartContext);
     const productListRef = useRef(null);
 
     if (!selectedProduct) {
         return <div className="no-product">No product selected.</div>;
     }
-
     const scrollLeft = () => {
         if (productListRef.current) {
             productListRef.current.scrollBy({
@@ -23,7 +22,7 @@ const MinimalProductinfo = () => {
 
     const handleAddToCart = () => {
         addToCart(selectedProduct);
-    };
+    }
 
     const scrollRight = () => {
         if (productListRef.current) {
@@ -33,12 +32,11 @@ const MinimalProductinfo = () => {
             });
         }
     };
-
     return (
         <div className="MinimalProductinfo">
             <h2 className='MinimalProductinfoHeading'>{selectedProduct.title}</h2>
             <div className="imageContainer" ref={productListRef}>
-                <img src={firstImage} alt={selectedProduct.title} className="MinimalProductinfoProduct-image" />  {/* Use the first image */}
+                <img src={selectedProduct.images[0]} alt={selectedProduct.title} className="MinimalProductinfoProduct-image" />
                 <img src={selectedProduct.images[1]} alt={selectedProduct.title} className="MinimalProductinfoProduct-image" />
                 <img src={selectedProduct.images[2]} alt={selectedProduct.title} className="MinimalProductinfoProduct-image" />
             </div>
@@ -60,6 +58,6 @@ const MinimalProductinfo = () => {
             </div>
         </div>
     );
-};
+}
 
 export default MinimalProductinfo;
