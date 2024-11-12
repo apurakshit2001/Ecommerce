@@ -5,7 +5,7 @@ import './MixProductPage.css';
 import axios from 'axios';
 
 const MixProductPage = () => {
-    const { setSelectedProduct } = useContext(ProductContext);
+    const { setProduct } = useContext(ProductContext);  // Use setProduct instead of setSelectedProduct
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -27,10 +27,12 @@ const MixProductPage = () => {
     if (loading) {
         return <div className="loading">Loading...</div>;
     }
+
     const viewProductDetails = (product) => {
-        setSelectedProduct(product);
-        navigate('/MinimalProductinfo');
+        setProduct(product);  // Set the product and first image
+        navigate('/MinimalProductinfo');  // Navigate to the product detail page
     };
+
     return (
         <div className='MixProductPage'>
             {products.map(product => (
@@ -43,6 +45,6 @@ const MixProductPage = () => {
             ))}
         </div>
     );
-}
+};
 
 export default MixProductPage;
