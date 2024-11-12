@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ProductContext } from '../../../ProductContext';
+import { ProductContext } from '../../../Contexts/ProductContext';
 import ProductList from './WomenFashionProduct';
 import '../Phones/AmazonSearchResults.css';
 

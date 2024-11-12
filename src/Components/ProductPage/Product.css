@@ -45,6 +45,42 @@
     margin: 10px 0;
 }
 
+/* Product.css */
+
+.Quantity {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    font-size: 1rem;
+    color: #555;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.Quantity:focus {
+    border-color: #e52e71;
+    box-shadow: 0 0 5px rgba(229, 46, 113, 0.5);
+}
+
+.Quantity option[disabled] {
+    color: #aaa;
+}
+
+.Quantity:hover {
+    background-color: #f1f1f1;
+}
+
+.selectContainer {
+    position: relative;
+    display: inline-block;
+}
+
+
 .buttonsContainer {
     display: flex;
     justify-content: right;

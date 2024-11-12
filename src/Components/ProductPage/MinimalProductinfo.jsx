@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from 'react';
-import { ProductContext } from '../ProductContext';
+import { ProductContext } from '../Contexts/ProductContext';
 import './MinimalProductinfo.css';
 
 const MinimalProductinfo = () => {

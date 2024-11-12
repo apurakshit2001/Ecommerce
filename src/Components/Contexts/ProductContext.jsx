@@ -1,3 +1,4 @@
+// CartContext.js
 import React, { createContext, useState } from 'react';
 
 export const ProductContext = createContext();
@@ -11,3 +12,5 @@ export const ProductProvider = ({ children }) => {
         </ProductContext.Provider>
     );
 };
+
+export default ProductContext;

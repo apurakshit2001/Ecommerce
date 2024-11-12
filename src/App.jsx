@@ -9,6 +9,7 @@ import Footer from './Components/Footer/Footer';
 import Product from './Components/ProductPage/Product';
 import MixProductPage from './Components/MixProductPage/MixProductPage';
 import MinimalProductinfo from './Components/ProductPage/MinimalProductinfo';
+import Cart from './Components/Cart/Cart';
 
 function App() {
   const [showArrow, setShowArrow] = useState(false);
@@ -40,6 +41,7 @@ function App() {
         <Route path="/product" element={<Product />} />
         <Route path="/MixProductPage" element={<MixProductPage />} />
         <Route path="/MinimalProductinfo" element={<MinimalProductinfo />} />
+        <Route path="/Cart" element={<Cart />} />
       </Routes>
       <div className={`upArrow ${showArrow ? 'visible' : 'hidden'}`}>
         <a className='arrow' href="#">↑</a>

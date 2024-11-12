@@ -1,0 +1,64 @@
+.CartPage {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* Grid with auto-fit and minmax */
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;  /* Centering items horizontally */
+    align-items: start;     /* Align items to the top */
+}
+
+.cartProductCard {
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cartProductImage {
+    height: 100%;
+    width: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.cartProductCard__details {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.CartItemTitle {
+    font-size: 1.2em;
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.CartItemDetail {
+    font-size: 1em;
+    color: #666;
+}
+
+.removeBUtton {
+    background: linear-gradient(45deg, #ff8a00, #e52e71);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.removeBUtton:hover {
+    background: linear-gradient(45deg, #e52e71, #ff8a00);
+}
+
+@media (max-width: 768px) {
+    .CartPage {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  /* Adjust columns for smaller screens */
+    }
+}

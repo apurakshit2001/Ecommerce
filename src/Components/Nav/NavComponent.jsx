@@ -55,8 +55,10 @@ const NavComponent = () => {
                 <li><Link to="/contact">Contact</Link></li>
                 <li>
                     <div className="nav-crat">
+                    <Link to='/Cart'>
                         <i className="fa-solid fa-cart-shopping"></i>
                         <span>Cart</span>
+                    </Link>
                     </div>
                 </li>
                 <li>

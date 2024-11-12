@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useContext } from 'react';
 import ProductList from './MenFashionProductList';
 import '../Phones/AmazonSearchResults.css'
 import { useNavigate } from 'react-router-dom';
-import { ProductContext } from '../../../ProductContext';
+import { ProductContext } from '../../../Contexts/ProductContext';
 
 const MenFashion = () => {
     const { setSelectedProduct } = useContext(ProductContext);
