@@ -17,6 +17,7 @@ import plug from '../../../../assets/plug.jpg';
 import light from  '../../../../assets/ligjht.jpg';
 import figure from '../../../../assets/figure.jpg';
 import './Mix.css';
+import { Link } from 'react-router-dom';
 
 const Mix = () => {
    
@@ -42,7 +43,7 @@ const Mix = () => {
                 <caption className='imgCaption'>Washing machines</caption>
             </div>
         </div>
-        <a href="#" className='seemore'>See More..</a>
+        <Link to='/MixProductPage' className='seemore'>See More..</Link>
       </div>
       <div className="card">
         <h1 className="cardHeading">Starting ₹99 | Home improvement essentials</h1>
@@ -64,7 +65,7 @@ const Mix = () => {
                 <caption className='imgCaption'>Extension boards, plugs & more</caption>
             </div>
         </div>
-        <a href="#" className='seemore'>See More..</a>
+        <Link to='/MixProductPage' className='seemore'>See More..</Link>
       </div>
       <div className="card">
         <h1 className="cardHeading">Starting ₹149 | Headphones</h1>
@@ -86,7 +87,7 @@ const Mix = () => {
                 <caption className='imgCaption'>Starting ₹149 | Zebronics</caption>
             </div>
         </div>
-        <a href="#" className='seemore'>See More..</a>
+        <Link to='/MixProductPage' className='seemore'>See More..</Link>
       </div>
       <div className="card">
         <h1 className="cardHeading">Revamp your home in style</h1>
@@ -108,7 +109,7 @@ const Mix = () => {
                 <caption className='imgCaption'>Lighting solutions</caption>
             </div>
         </div>
-        <a href="#" className='seemore'>See More..</a>
+        <Link to='/MixProductPage' className='seemore'>See More..</Link>
       </div>
     </div>
   )
