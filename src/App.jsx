@@ -10,6 +10,7 @@ import Product from './Components/ProductPage/Product';
 import MixProductPage from './Components/MixProductPage/MixProductPage';
 import MinimalProductinfo from './Components/ProductPage/MinimalProductinfo';
 import Cart from './Components/Cart/Cart';
+import PrivateRoute from './Components/RoutingRules/PrivateRoute';
 
 function App() {
   const [showArrow, setShowArrow] = useState(false);
@@ -18,7 +19,7 @@ function App() {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const halfPageHeight = document.documentElement.scrollHeight / 2.8;
-      
+
       if (scrollPosition > halfPageHeight) {
         setShowArrow(true);
       } else {
@@ -36,7 +37,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} /> {/* Root route for Home */}
         <Route path="/home" element={<Home />} /> {/* Alternate route for Home */}
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        } />
         <Route path="/login" element={<LoginSignupForm />} />
         <Route path="/product" element={<Product />} />
         <Route path="/MixProductPage" element={<MixProductPage />} />

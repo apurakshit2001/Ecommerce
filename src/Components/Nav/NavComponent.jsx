@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './NavComponent.css';
 import { Link } from 'react-router-dom';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
+import AuthContext from '../Contexts/AuthContext';
 
 const NavComponent = () => {
+    const {loggedin, setLoggedin } = useContext(AuthContext);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
@@ -32,6 +32,12 @@ const NavComponent = () => {
         setIsModalOpen(false);
     };
 
+    const handleLogout = () => {
+        setLoggedin(false);
+        sessionStorage.setItem('loggedin', false);  
+        handleMenuClose();
+    }
+
     const menuId = 'profile-account-menu';
 
     return (
@@ -39,8 +45,8 @@ const NavComponent = () => {
             <div className="logo"><h1>Polo<i className='bx bxs-package'></i></h1></div>
             <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
                 <li><Link to="/home">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/services">Services</Link></li>
+                {/* <li><Link to="/about">About</Link></li> */}
+                {/* <li><Link to="/services">Services</Link></li> */}
                 <li>
                     <select name="" id="" className="language-flag-text custom-select">
                         <option value="en">English</option>
@@ -80,7 +86,7 @@ const NavComponent = () => {
                         open={Boolean(anchorEl)}
                         onClose={handleMenuClose}
                     >
-                        <MenuItem onClick={handleMenuClose}><span className='link'><Link to='/login'>Sign Up</Link></span></MenuItem>
+                        <MenuItem onClick={handleLogout}><span className='link'><Link to='/login'>{loggedin ? "Log Out" : "Log In" }</Link></span></MenuItem>
                         <MenuItem onClick={handleMenuClose}><span className='link'><Link to='/profile'>Account</Link></span></MenuItem>
                     </Menu>
                 </li>
